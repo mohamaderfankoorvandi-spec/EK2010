@@ -1,0 +1,823 @@
+/* ============================================
+   پالت رنگ روشن تلگرام (Telegram Light Theme)
+   ============================================ */
+:root {
+  --tg-bg: #ffffff;
+  --tg-bg-secondary: #f4f4f5;
+  --tg-bg-light: #eff3f6;
+  --tg-text: #000000;
+  --tg-text-secondary: #707579;
+  --tg-link: #2481cc;
+  --tg-button: #2481cc;
+  --tg-button-hover: #1f6fb0;
+  --tg-accent: #2481cc;
+  --tg-border: #e0e0e0;
+  --tg-green: #4fae4e;
+  --tg-green-hover: #3d8b3c;
+  --tg-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --tg-shadow-lg: 0 15px 40px rgba(36, 129, 204, 0.15);
+}
+
+/* تنظیمات پایه */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Tahoma, "Segoe UI", sans-serif;
+  line-height: 1.7;
+  color: var(--tg-text);
+  background: var(--tg-bg);
+  overflow-x: hidden;
+}
+
+/* همه متن‌ها وسط‌چین */
+body, h1, h2, h3, h4, h5, h6, p, li, a, button, span, div {
+  text-align: center;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================ هدر ================ */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--tg-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--tg-shadow);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--tg-accent);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--tg-text);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--tg-text);
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a:not(.btn-nav)::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 50%;
+  transform: translateX(50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background: var(--tg-accent);
+  transition: transform 0.3s;
+}
+
+.nav-links a:not(.btn-nav):hover::after {
+  transform: translateX(50%) scaleX(1);
+}
+
+.nav-links a:hover {
+  color: var(--tg-accent);
+}
+
+.btn-nav {
+  background: var(--tg-accent);
+  color: #fff !important;
+  padding: 9px 22px;
+  border-radius: 25px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(36, 129, 204, 0.3);
+}
+
+.btn-nav:hover {
+  background: var(--tg-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(36, 129, 204, 0.4);
+}
+
+/* ================ بخش اصلی ================ */
+.hero {
+  background: linear-gradient(135deg, #e8f2fb 0%, #f4f9ff 50%, #e0eefb 100%);
+  padding: 110px 0 90px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--tg-border);
+}
+
+.hero-bg-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #2481cc, transparent);
+  top: -80px;
+  right: -80px;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #4fae4e, transparent);
+  bottom: -60px;
+  left: -60px;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #f5b944, transparent);
+  top: 40%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  background: #fff;
+  color: var(--tg-accent);
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  box-shadow: var(--tg-shadow);
+  border: 1px solid #d6e7f7;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--tg-text);
+  line-height: 1.3;
+}
+
+.highlight {
+  color: var(--tg-accent);
+  position: relative;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(36, 129, 204, 0.15);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto 35px;
+  color: var(--tg-text-secondary);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ================ دکمه‌ها ================ */
+.btn {
+  display: inline-block;
+  background: var(--tg-accent);
+  color: #fff;
+  padding: 13px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(36, 129, 204, 0.25);
+}
+
+.btn:hover {
+  background: var(--tg-button-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(36, 129, 204, 0.35);
+}
+
+.btn-primary {
+  background: var(--tg-accent);
+}
+
+.btn-outline {
+  background: #fff;
+  color: var(--tg-accent);
+  border: 2px solid var(--tg-accent);
+}
+
+.btn-outline:hover {
+  background: var(--tg-accent);
+  color: #fff;
+}
+
+.btn-telegram {
+  background: var(--tg-green);
+  box-shadow: 0 4px 15px rgba(79, 174, 78, 0.3);
+}
+
+.btn-telegram:hover {
+  background: var(--tg-green-hover);
+  box-shadow: 0 10px 25px rgba(79, 174, 78, 0.4);
+}
+
+/* ================ آمار ================ */
+.stats {
+  background: var(--tg-accent);
+  padding: 60px 0;
+  color: #fff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 10px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+  color: #e8f2fb;
+}
+
+/* ================ عناوین ================ */
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: var(--tg-text);
+  position: relative;
+  text-align: center;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: var(--tg-accent);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  color: var(--tg-text-secondary);
+  margin-bottom: 55px;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+/* ================ خدمات ================ */
+.services {
+  padding: 90px 0;
+  background: var(--tg-bg-secondary);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 45px 28px 35px;
+  border-radius: 18px;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+  box-shadow: var(--tg-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tg-accent), var(--tg-green));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--tg-shadow-lg);
+  border-color: #d6e7f7;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 18px;
+  transition: transform 0.4s;
+}
+
+.card:hover .card-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  color: var(--tg-text);
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: var(--tg-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.card-tag {
+  display: inline-block;
+  background: #e8f2fb;
+  color: var(--tg-accent);
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* ================ درباره ما ================ */
+.about {
+  padding: 90px 0;
+  background: var(--tg-bg);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text .section-title {
+  text-align: center;
+}
+
+.about-text .section-title::after {
+  margin: 15px auto 0;
+}
+
+.about-text p {
+  color: var(--tg-text-secondary);
+  margin-bottom: 15px;
+}
+
+.about-list {
+  list-style: none;
+  margin: 25px 0;
+  padding: 0;
+}
+
+.about-list li {
+  padding: 10px 0;
+  color: var(--tg-text);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.about-box {
+  background: linear-gradient(135deg, #e8f2fb, #d6e7f7);
+  border-radius: 22px;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 340px;
+  box-shadow: var(--tg-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-box::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(79, 174, 78, 0.2), transparent);
+  top: -50px;
+  left: -50px;
+  border-radius: 50%;
+}
+
+.telegram-card {
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 18px;
+  text-align: center;
+  width: 100%;
+  box-shadow: var(--tg-shadow);
+  position: relative;
+  z-index: 2;
+}
+
+.tg-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.telegram-card h3 {
+  color: var(--tg-accent);
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  direction: ltr;
+  font-family: "Segoe UI", monospace;
+}
+
+.telegram-card p {
+  color: var(--tg-text-secondary);
+  margin-bottom: 22px;
+  font-size: 0.95rem;
+}
+
+/* ================ نظرات ================ */
+.testimonials {
+  padding: 90px 0;
+  background: var(--tg-bg-light);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: #fff;
+  padding: 35px 28px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: var(--tg-shadow);
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--tg-shadow-lg);
+  border-color: #d6e7f7;
+}
+
+.stars {
+  color: #f5b944;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  letter-spacing: 3px;
+}
+
+.testimonial-card > p {
+  color: var(--tg-text);
+  font-style: italic;
+  margin-bottom: 22px;
+  line-height: 1.8;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--tg-border);
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tg-accent), var(--tg-green));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.testimonial-author strong {
+  display: block;
+  color: var(--tg-text);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.testimonial-author span {
+  display: block;
+  color: var(--tg-text-secondary);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+/* ================ فرم تماس ================ */
+.contact {
+  padding: 90px 0;
+  background: var(--tg-bg);
+}
+
+.contact-content {
+  max-width: 700px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+  background: #fff;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: var(--tg-shadow-lg);
+  border: 1px solid var(--tg-border);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px 20px;
+  border: 2px solid var(--tg-border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--tg-text);
+  background: var(--tg-bg-secondary);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--tg-accent);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(36, 129, 204, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form .btn {
+  margin-top: 8px;
+}
+
+/* ================ فوتر ================ */
+.footer {
+  background: #1a2330;
+  color: #fff;
+  padding: 60px 0 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.footer-section h4 {
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.footer-section .logo {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.footer-section p {
+  color: #b0bcc9;
+  font-size: 0.95rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  padding: 6px 0;
+}
+
+.footer-section ul a {
+  color: #b0bcc9;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul a:hover {
+  color: var(--tg-accent);
+}
+
+.tg-link {
+  color: var(--tg-accent);
+  text-decoration: none;
+  font-weight: bold;
+  direction: ltr;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.tg-link:hover {
+  color: #4fa8e8;
+  transform: scale(1.05);
+}
+
+.footer-bottom {
+  border-top: 1px solid #2d3a4a;
+  padding: 22px 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #8895a4;
+  font-size: 0.9rem;
+}
+
+/* ================ دکمه شناور تلگرام ================ */
+.floating-tg {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--tg-green);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(79, 174, 78, 0.5);
+  z-index: 999;
+  transition: all 0.3s;
+  animation: floatBtn 3s ease-in-out infinite;
+}
+
+.floating-tg:hover {
+  transform: scale(1.15) rotate(15deg);
+  box-shadow: 0 10px 30px rgba(79, 174, 78, 0.7);
+}
+
+@keyframes floatBtn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ================ واکنش‌گرایی ================ */
+@media (max-width: 900px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    gap: 15px;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links li:not(:last-child) {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 0 60px;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 85%;
+  }
+
+  .floating-tg {
+    bottom: 20px;
+    left: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
+  }
+}
